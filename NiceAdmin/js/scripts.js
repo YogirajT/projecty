@@ -16,7 +16,6 @@ function initializeJS() {
         // for scroll panel
     jQuery(".scroll-panel").niceScroll({styler:"fb",cursorcolor:"#007AFF", cursorwidth: '3', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: ''});
 		//for table
-	jQuery(".table-responsive").niceScroll({styler:"fb",cursorcolor:"#007AFF", cursorwidth: '3', cursorborderradius: '10px', background: '#F7F7F7', cursorborder: ''});
 
     
     //sidebar dropdown menu

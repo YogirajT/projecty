@@ -401,6 +401,10 @@ th, td {
 	white-space: nowrap;
 }
 
+table.dataTable thead th {
+
+}
+
 /* dropdowns */
 
 .form-control{
@@ -471,4 +475,15 @@ th, td {
 	width:auto;
 	max-width:370px;
 	border-top:1px solid;
+}
+
+/* modal */
+.modal {
+   top: 100px;
+}
+
+.tasks-widget .task-list > li {
+    position: relative;
+    padding: 10px 5px;
+    border-bottom: 1px dashed #eaeaea;
 }

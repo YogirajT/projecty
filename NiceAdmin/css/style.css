@@ -9881,4 +9881,5 @@ span.customSelect.changed {
 .popover{
 	max-width:480px;
 	width:480px;
+	z-index: 10000;
 }

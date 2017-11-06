@@ -24,10 +24,6 @@
 				font-size:16px;
 				background: beige;
 			}
-			#jax{
-				position:fixed;
-				top: 100px;
-			}
 			.btn{
 				border-radius:0px;
 			}
@@ -129,21 +125,27 @@
 			<footer>
 				<div id="weather"></div>
 			</footer>
-			<div id="jax">
-			</div>
+			<form id="medicalform" action="index.php" method="GET">
+				<div id="optsrow" class="row" style="background-color:grey;">
+					
+						<div class="col-xs-12" id="jax" style="width:100%">
+							<div id="addbtn" class="btn btn-default">+</div>
+						</div>
+						<input type="submit" name="parentinfo"/>
+				</div>
+			</form>
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Task update</h4>
-				  </div>
-				  <div class="modal-body">
-					...
-				  </div>
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Task update</h4>
+						</div>
+						<div class="modal-body">
+						</div>
+					</div>
 				</div>
-			  </div>
 			</div>
 		</div>
 		<div id="emptydiv" style="display:none"></div>
@@ -286,8 +288,37 @@
 			}
 		};
 		
+		//formcode
+		var w = 0,
+		v = 0;
+		$("#addbtn").click(function(){
+			if (w<3 && v<3){
+			w++;
+			v++;
+			$("<div class='col-xm-12 remablrow'><span>Relation</span><select name="+"relation"+w+"><option value='Father' name='1'>Father</option><option value='Mother' name='2'>Mother</option><option value='Son' name='3'>Son</option></select><span>Age</span><input type='number' name="+"age"+v+" min='0' max='100' style='width:50px;'><div class='btn btn-default rmbtn'>-</div></div>").appendTo(optsrow);
+			}
+			else{
+				alert("You can only add upto 3 reletions");
+			}
+		});
+		
+		$(document).on('click', '.rmbtn', function(){ 
+			   $(this).parent().remove();
+		});
+		
+		
 		$(document).ready(function(){
 			$('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:5});
+			/*
+			$('#medicalform').on('submit', function(e) {
+				//prevent the default submithandling
+				e.preventDefault();
+				//send the data of 'this' (the matched form) to yourURL
+				$.get('index.php', $(this).serialize(), function(data, status){
+					alert("Data: " + data + "\nStatus: " + status);
+				});
+			});
+			*/
 		});
 	</script>
 	</body>
